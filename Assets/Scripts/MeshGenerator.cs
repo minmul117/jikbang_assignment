@@ -72,7 +72,9 @@ public class MeshGenerator : MonoBehaviour
                 {
                     // (min, max)
                     var minMaxValues = GetMinMaxVerticesByPlane(mesh, Plane.XZ);
-                    var xNormalized = Mathf.InverseLerp(minMaxValues[0].x, minMaxValues[0].y, meshVertices[j].x);
+                    var xNormalized = Mathf.InverseLerp(minMaxValues[0].x,
+                                                        minMaxValues[0].y,
+                                                        meshVertices[j].x);
                     var xInversedNormalized = (Mathf.Lerp(768.0f, 1024.0f, xNormalized)) / 1024.0f;
 
                     var zNormalized = Mathf.InverseLerp(minMaxValues[1].x, minMaxValues[1].y, meshVertices[j].z);
@@ -83,7 +85,9 @@ public class MeshGenerator : MonoBehaviour
                 else if (firstDir == Face.Front)
                 {
                     var minMaxValues = GetMinMaxVerticesByPlane(mesh, Plane.XY);
-                    var xNormalized = Mathf.InverseLerp(minMaxValues[0].x, minMaxValues[0].y, meshVertices[j].x);
+                    var xNormalized = Mathf.InverseLerp(minMaxValues[0].x,
+                                                        minMaxValues[0].y,
+                                                        meshVertices[j].x);
                     var xInversedNormalized = Mathf.Lerp(0.0f, 512.0f, xNormalized) / 1024.0f;
 
                     var yNormalized = Mathf.InverseLerp(minMaxValues[1].x, minMaxValues[1].y, meshVertices[j].y);
@@ -94,7 +98,9 @@ public class MeshGenerator : MonoBehaviour
                 else if (firstDir == Face.LeftAndRight)
                 {
                     var minMaxValues = GetMinMaxVerticesByPlane(mesh, Plane.YZ);
-                    var yNormalized = Mathf.InverseLerp(minMaxValues[0].x, minMaxValues[0].y, meshVertices[j].y);
+                    var yNormalized = Mathf.InverseLerp(minMaxValues[0].x,
+                                                        minMaxValues[0].y,
+                                                        meshVertices[j].y);
                     var yInversedNormalized = Mathf.Lerp(0.0f, 512.0f, yNormalized) / 512.0f;
 
                     var zNormalized = Mathf.InverseLerp(minMaxValues[1].x, minMaxValues[1].y, meshVertices[j].z);
@@ -103,7 +109,6 @@ public class MeshGenerator : MonoBehaviour
                     uvs[j] = new Vector2(zInversedNormalized, yInversedNormalized);
                 }
             }
-
             mesh.uv = uvs;
         }
     }

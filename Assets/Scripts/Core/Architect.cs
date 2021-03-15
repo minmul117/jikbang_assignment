@@ -45,7 +45,7 @@ namespace ZEDAssignment.Core
                     ProcessVertices(roomType);
                 }
             }
-            
+
             MeshGenerator.ProcessUVs();
         }
 
@@ -77,7 +77,7 @@ namespace ZEDAssignment.Core
                     triangles.Add(start + 2);
                 }
             }
-            
+
             var newMesh = new Mesh();
             newMesh.vertices = vertices.ToArray();
             newMesh.triangles = triangles.ToArray();
