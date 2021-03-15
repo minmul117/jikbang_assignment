@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-using Newtonsoft.Json;
-
 using ZEDAssignment.APIResponse;
 
 namespace ZEDAssignment.ResponseParser
@@ -14,8 +12,7 @@ namespace ZEDAssignment.ResponseParser
     {
         public static Root ParseResponse(string text)
         {
-            var Response = JsonConvert.DeserializeObject<Root>(text); 
-            //var Response = JsonUtility.FromJson<Root>(text);
+            var Response = JsonUtility.FromJson<Root>(text);
             return Response;
         }
     }
